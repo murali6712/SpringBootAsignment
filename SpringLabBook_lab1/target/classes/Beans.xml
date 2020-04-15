@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation = "http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	
+	 <context:annotation-config/>
+	
+	<bean id = "employeeDetails" class= "com.cg.lab1.Employee">
+		<property name="employeeId" value="12345"></property>
+		<property name="employeeName" value="Harriet"></property>
+		<property name="salary" value="40000.0"></property>
+		<property name="businessUnit" value="PES-BU"></property>
+		<property name="age" value="30"></property>
+		<property name="sbu"><ref bean= "sbu"/></property>
+	</bean>
+	
+	<bean id= "sbu" class= "com.cg.lab1.SBU">
+		<property name="sbuId" value= "100"></property>
+		<property name="sbuName" value= "Product Engineering Services"></property>
+		<property name="sbuHead" value= "Kiran Rao"></property>
+		<property name= "employee" >
+			<list>
+				<ref bean= "employeeDetails"></ref>
+			</list>
+		</property>
+	</bean>
+	
+</beans>
